@@ -21,17 +21,16 @@ with open("key.pem", "wb") as f:
 # Generate our CSR
 csr = x509.CertificateSigningRequestBuilder().subject_name(x509.Name([
      # Provide various details about who we are.
-     x509.NameAttribute(NameOID.COUNTRY_NAME, u"US"),
-     x509.NameAttribute(NameOID.STATE_OR_PROVINCE_NAME, u"California"),
-     x509.NameAttribute(NameOID.LOCALITY_NAME, u"San Francisco"),
-     x509.NameAttribute(NameOID.ORGANIZATION_NAME, u"My Company"),
-     x509.NameAttribute(NameOID.COMMON_NAME, u"mysite.com"),
+     x509.NameAttribute(NameOID.COUNTRY_NAME, u"AU"),
+     x509.NameAttribute(NameOID.STATE_OR_PROVINCE_NAME, u"Queensland"),
+     x509.NameAttribute(NameOID.LOCALITY_NAME, u"Brisbane"),
+     x509.NameAttribute(NameOID.ORGANIZATION_NAME, u"jonathanLynn"),
+     x509.NameAttribute(NameOID.COMMON_NAME, u"jonathanlynn.github.io"),
  ])).add_extension(
      x509.SubjectAlternativeName([
          # Describe what sites we want this certificate for.
-         x509.DNSName(u"mysite.com"),
-         x509.DNSName(u"www.mysite.com"),
-         x509.DNSName(u"subdomain.mysite.com"),
+         x509.DNSName(u"jonathanlynn.github.io"),
+         x509.DNSName(u"www.jonathanlynn.github.io"),
      ]),
      critical=False,
  # Sign the CSR with our private key.
